@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, View, FlatList } from "react-native";
+import Amplify, { Analytics } from "aws-amplify";
+import config from "./src/aws-exports";
+import { withAuthenticator } from "aws-amplify-react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import RootNavigator from "./src/navigator";
+import AuthContextProvider from "./src/contexts/AuthContext";
+import BasketContextProvider from "./src/contexts/BasketContext";
+import OrderContextProvider from "./src/contexts/OrderContext";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+Amplify.configure({
+  ...config,
+  Analytics: {
+    disabled: true,
   },
 });
+
+function App() {
+  return (
+    <NavigationContainer>
+      <AuthContextProvider>
+        <BasketContextProvider>
+          <OrderContextProvider>
+            <RootNavigator />
+          </OrderContextProvider>
+        </BasketContextProvider>
+      </AuthContextProvider>
+
+      <StatusBar style="dark-content" />
+    </NavigationContainer>
+  );
+}
+;
+
+
+export default withAuthenticator(App);

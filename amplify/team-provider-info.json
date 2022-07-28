@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-moneyuser-staging-205542-authRole",
+      "UnauthRoleArn": "arn:aws:iam::270381083968:role/amplify-moneyuser-staging-205542-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::270381083968:role/amplify-moneyuser-staging-205542-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-moneyuser-staging-205542-deployment",
+      "UnauthRoleName": "amplify-moneyuser-staging-205542-unauthRole",
+      "StackName": "amplify-moneyuser-staging-205542",
+      "StackId": "arn:aws:cloudformation:us-east-1:270381083968:stack/amplify-moneyuser-staging-205542/8508e640-eced-11ec-b003-12b2d3eaccad",
+      "AmplifyAppId": "dn5sa1n91ylhw"
+    },
+    "categories": {
+      "auth": {
+        "MoneyUser": {}
+      }
+    }
+  }
+}
